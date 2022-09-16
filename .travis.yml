@@ -16,17 +16,17 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend shinarasheed/udagram-frontend:v2
+  - docker tag udagram-frontend shinarasheed/udagram-frontend:v3
   - docker build -t udagram-api-feed ./udagram-api-feed
-  - docker tag udagram-api-feed shinarasheed/udagram-api-feed:v2
+  - docker tag udagram-api-feed shinarasheed/udagram-api-feed:v3
   - docker build -t udagram-api-user ./udagram-api-user
-  - docker tag udagram-api-user shinarasheed/udagram-api-user:v2
+  - docker tag udagram-api-user shinarasheed/udagram-api-user:v3
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-reverseproxy shinarasheed/udagram-reverseproxy:v2
+  - docker tag udagram-reverseproxy shinarasheed/udagram-reverseproxy:v3
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" docker.io
-  - docker push shinarasheed/udagram-frontend:v2
-  - docker push shinarasheed/udagram-api-feed:v2
-  - docker push shinarasheed/udagram-api-user:v2
-  - docker push shinarasheed/udagram-reverseproxy:v2
+  - docker push shinarasheed/udagram-frontend:v3
+  - docker push shinarasheed/udagram-api-feed:v3
+  - docker push shinarasheed/udagram-api-user:v3
+  - docker push shinarasheed/udagram-reverseproxy:v3
